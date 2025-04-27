@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="sdklib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/sdklib/libsdkmanager_lib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/sdklib/libavdmanager_lib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/sdklib/tools.sdklib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/sdklib/sdklib.core.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

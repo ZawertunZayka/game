@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libshrinker">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/build-system/shrinker/libshrinker.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

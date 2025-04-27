@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="core-lambda-stubs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-sdk/build-tools/34.0.0/core-lambda-stubs.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

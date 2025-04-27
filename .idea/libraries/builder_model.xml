@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="builder-model">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/build-system/builder-model/builder-model.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

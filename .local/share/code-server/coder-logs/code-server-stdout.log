@@ -1,0 +1,25 @@
+[2025-04-27T08:23:14.402Z] info  code-server 4.99.3 c36b2d3edd1cc8db7cfc49f5bc55711e7c5ac928
+[2025-04-27T08:23:14.421Z] info  Using user-data-dir /home/ubuntu/.local/share/code-server
+[2025-04-27T08:23:14.440Z] info  Using config file /home/ubuntu/.config/code-server/config.yaml
+[2025-04-27T08:23:14.440Z] info  HTTP server listening on http://0.0.0.0:8329/
+[2025-04-27T08:23:14.440Z] info    - Authentication is enabled
+[2025-04-27T08:23:14.440Z] info      - Using password from /home/ubuntu/.config/code-server/config.yaml
+[2025-04-27T08:23:14.440Z] info    - Not serving HTTPS
+[2025-04-27T08:23:14.441Z] info  Session server listening on /home/ubuntu/.local/share/code-server/code-server-ipc.sock
+[09:03:01] 
+
+
+
+
+[09:03:01] Extension host agent started.
+[09:03:01] Started initializing default profile extensions in extensions installation folder. file:///home/ubuntu/.local/share/code-server/extensions
+[09:03:01] Completed initializing default profile extensions in extensions installation folder. file:///home/ubuntu/.local/share/code-server/extensions
+[09:03:13] [10.197.82.1][a6ef1ea2][ManagementConnection] New connection established.
+[09:03:16] [10.197.82.1][10eaec13][ExtensionHostConnection] New connection established.
+[09:03:17] [10.197.82.1][10eaec13][ExtensionHostConnection] <8643> Launched Extension Host Process.
+[09:08:22] [10.197.82.1][e65f7d2a][ManagementConnection] New connection established.
+[09:08:24] [10.197.82.1][b301fa1f][ExtensionHostConnection] New connection established.
+[09:08:24] [10.197.82.1][b301fa1f][ExtensionHostConnection] <15315> Launched Extension Host Process.
+[09:17:48] [10.58.110.1][36c4f91d][ManagementConnection] New connection established.
+[09:17:51] [10.58.110.1][c0c17992][ExtensionHostConnection] New connection established.
+[09:17:51] [10.58.110.1][c0c17992][ExtensionHostConnection] <19088> Launched Extension Host Process.

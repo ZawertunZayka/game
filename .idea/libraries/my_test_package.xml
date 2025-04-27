@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="my-test-package">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.local/share/virtualenv/wheel/3.11/image/1/CopyPipInstall/setuptools-78.1.0-py3-none-any/pkg_resources/tests/data/my-test-package-zip/my-test-package.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

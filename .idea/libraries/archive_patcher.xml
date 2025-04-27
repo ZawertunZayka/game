@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="archive-patcher">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/external/archive-patcher/generator.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/external/archive-patcher/shared.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/external/archive-patcher/explainer.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

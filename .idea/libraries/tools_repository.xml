@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="tools.repository">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/repository/tools.repository.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

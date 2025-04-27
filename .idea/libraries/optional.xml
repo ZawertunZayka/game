@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="optional">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-sdk/platforms/android-34/optional/android.test.mock.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-sdk/platforms/android-34/optional/android.test.runner.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-sdk/platforms/android-34/optional/android.test.base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-sdk/platforms/android-34/optional/org.apache.http.legacy.jar!/" />
+      <root url="jar://$PROJECT_DIR$/android-sdk/platforms/android-34/optional/android.car.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

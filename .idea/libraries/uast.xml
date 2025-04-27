@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="uast">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/external/lint-psi/uast/uast.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

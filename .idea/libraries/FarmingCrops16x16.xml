@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="FarmingCrops16x16">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/FarmingCrops16x16.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

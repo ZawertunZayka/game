@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="guava-32.0.1-jre">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/external/com/google/guava/guava/32.0.1-jre/guava-32.0.1-jre.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

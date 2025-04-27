@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FarmLifeGame</string>
+    <string name="play">Играть</string>
+    <string name="settings">Настройки</string>
+    <string name="about">Об авторе</string>
+    <string name="exit">Выйти</string>
+    <string name="new_game">Новый мир</string>
+    <string name="load_game">Загрузить</string>
+    <string name="about_text">by Zawertun</string>
+</resources>

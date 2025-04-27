@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="zipflinger">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/android-sdk/cmdline-tools/latest/lib/zipflinger/zipflinger.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
