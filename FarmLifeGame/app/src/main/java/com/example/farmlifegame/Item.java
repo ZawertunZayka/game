@@ -1,5 +1,6 @@
 package com.example.farmlifegame;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 
 // Basic enum for item types
@@ -44,6 +45,28 @@ public class Item implements Serializable {
         this.maxStackSize = isStackable ? maxStackSize : 1;
         this.buyPrice = buyPrice;
         this.sellPrice = sellPrice;
+=======
+// Basic enum for item types
+enum ItemType {
+    RESOURCE, // Ores, Fish, Crops
+    TOOL,     // Axe, Pickaxe, Hoe, Fishing Rod
+    SEED,     // Crop seeds
+    IMPROVEMENT // Backpack upgrade, etc.
+}
+
+public class Item {
+    private String name;
+    private ItemType type;
+    private int resourceId; // Drawable resource ID for the item's icon
+    private String description;
+    // Add other relevant properties like stack size, value, tool durability, etc.
+
+    public Item(String name, ItemType type, int resourceId, String description) {
+        this.name = name;
+        this.type = type;
+        this.resourceId = resourceId;
+        this.description = description;
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     }
 
     // Getters
@@ -63,6 +86,7 @@ public class Item implements Serializable {
         return description;
     }
 
+<<<<<<< HEAD
     public boolean isStackable() {
         return isStackable;
     }
@@ -92,5 +116,8 @@ public class Item implements Serializable {
     public int hashCode() {
         return name.hashCode();
     }
+=======
+    // TODO: Add equals() and hashCode() if items need to be compared or stored in sets/maps
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
 }
 

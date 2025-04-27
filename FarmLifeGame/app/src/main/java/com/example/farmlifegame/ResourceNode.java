@@ -4,12 +4,16 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+<<<<<<< HEAD
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.Log;
 
 import java.io.Serializable;
+=======
+import android.graphics.Rect;
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +22,7 @@ enum ResourceType {
     STONE, COAL, IRON, GOLD, EMERALD, DIAMOND // Add others like WOOD, FISH later
 }
 
+<<<<<<< HEAD
 // Represents a gatherable resource node in the game world.
 // Consider making this Serializable or creating a separate ResourceNodeData class for saving.
 public class ResourceNode {
@@ -32,10 +37,20 @@ public class ResourceNode {
     private boolean depleted = false;
     private long depletionTime = 0; // Time when the node was depleted
     private long respawnDelayMillis; // Time until respawn after depletion
+=======
+public class ResourceNode {
+    private int x, y; // Position on the map (in tile coordinates or pixels)
+    private ResourceType type;
+    private Bitmap spriteSheet; // Using the icons spritesheet
+    private Rect sourceRect; // Rect for the specific resource icon
+    private int health; // How many hits it takes to break
+    private boolean depleted = false;
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     private int tileSize = 16; // Assuming 16x16 tiles/icons
 
     // Map to store icon rectangles for each resource type
     private static Map<ResourceType, Rect> resourceIconRects = new HashMap<>();
+<<<<<<< HEAD
     // Map to store base health for each resource type
     private static Map<ResourceType, Integer> resourceBaseHealth = new HashMap<>();
     // Map to store respawn delays (in milliseconds)
@@ -67,12 +82,30 @@ public class ResourceNode {
         resourceRespawnDelays.put(ResourceType.GOLD, 10 * 60 * 1000L);
         resourceRespawnDelays.put(ResourceType.EMERALD, 20 * 60 * 1000L);
         resourceRespawnDelays.put(ResourceType.DIAMOND, 30 * 60 * 1000L);
+=======
+
+    // Static block to initialize icon rectangles (adjust coordinates based on spritesheet_icons.png)
+    static {
+        // Assuming 16x16 icons in the sheet
+        // Row 1: Wood, Stone, Iron
+        // Row 2: Gold, Emerald, Ruby (unused), Diamond
+        // These coordinates need verification by looking at spritesheet_icons.png
+        // Using the version *with* outline for now (left side of the sheet)
+        int iconSize = 16; // Assuming 16x16 icons
+        resourceIconRects.put(ResourceType.STONE, new Rect(1 * iconSize, 1 * iconSize, 2 * iconSize, 2 * iconSize)); // Stone icon at (1,1)?
+        resourceIconRects.put(ResourceType.COAL, new Rect(0, 0, iconSize, iconSize)); // No specific coal icon, using placeholder (top-left wood?)
+        resourceIconRects.put(ResourceType.IRON, new Rect(2 * iconSize, 1 * iconSize, 3 * iconSize, 2 * iconSize)); // Iron icon at (2,1)?
+        resourceIconRects.put(ResourceType.GOLD, new Rect(0 * iconSize, 2 * iconSize, 1 * iconSize, 3 * iconSize)); // Gold icon at (0,2)?
+        resourceIconRects.put(ResourceType.EMERALD, new Rect(1 * iconSize, 2 * iconSize, 2 * iconSize, 3 * iconSize)); // Emerald icon at (1,2)?
+        resourceIconRects.put(ResourceType.DIAMOND, new Rect(3 * iconSize, 2 * iconSize, 4 * iconSize, 3 * iconSize)); // Diamond icon at (3,2)?
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     }
 
     public ResourceNode(Context context, int x, int y, ResourceType type) {
         this.x = x;
         this.y = y;
         this.type = type;
+<<<<<<< HEAD
         this.maxHealth = resourceBaseHealth.getOrDefault(type, 3);
         this.currentHealth = this.maxHealth;
         this.respawnDelayMillis = resourceRespawnDelays.getOrDefault(type, 5 * 60 * 1000L); // Default 5 mins
@@ -129,10 +162,28 @@ public class ResourceNode {
             long timeSinceDepletion = System.currentTimeMillis() - depletionTime;
             if (timeSinceDepletion >= respawnDelayMillis) {
                 respawn();
+=======
+        this.health = 3; // Example: takes 3 hits
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inScaled = false;
+        spriteSheet = BitmapFactory.decodeResource(context.getResources(), R.drawable.spritesheet_icons, options);
+
+        this.sourceRect = resourceIconRects.getOrDefault(type, new Rect(0, 0, tileSize, tileSize)); // Default to top-left if type not found
+    }
+
+    public void hit() {
+        if (!depleted) {
+            health--;
+            if (health <= 0) {
+                depleted = true;
+                // TODO: Trigger item drop logic
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
             }
         }
     }
 
+<<<<<<< HEAD
     private void respawn() {
         depleted = false;
         currentHealth = maxHealth;
@@ -162,6 +213,17 @@ public class ResourceNode {
 
     // --- Getters --- (and Setters if needed for loading state)
 
+=======
+    public void draw(Canvas canvas) {
+        if (!depleted && spriteSheet != null && sourceRect != null) {
+            // Draw the resource node icon at its position
+            // Assuming x, y are pixel coordinates. Adjust if they are tile coordinates.
+            Rect destRect = new Rect(x, y, x + tileSize, y + tileSize);
+            canvas.drawBitmap(spriteSheet, sourceRect, destRect, null);
+        }
+    }
+
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     public boolean isDepleted() {
         return depleted;
     }
@@ -178,6 +240,7 @@ public class ResourceNode {
         return y;
     }
 
+<<<<<<< HEAD
     public int getCurrentHealth() {
         return currentHealth;
     }
@@ -186,10 +249,13 @@ public class ResourceNode {
         return depletionTime;
     }
 
+=======
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     public Rect getBounds() {
         // Return the bounding box for interaction detection
         return new Rect(x, y, x + tileSize, y + tileSize);
     }
+<<<<<<< HEAD
 
     // --- Methods for Saving/Loading State --- (if not using a separate Data class)
 
@@ -228,5 +294,7 @@ public class ResourceNode {
             this.depletionTime = depletionTime;
         }
     }
+=======
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
 }
 

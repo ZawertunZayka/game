@@ -1,5 +1,6 @@
 package com.example.farmlifegame;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 
 /**
@@ -9,10 +10,15 @@ import java.io.Serializable;
 public class ItemStack implements Serializable {
     private static final long serialVersionUID = 1L; // Needed for Serializable
 
+=======
+// Simple class to hold an item and its quantity
+public class ItemStack {
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     private Item item;
     private int quantity;
 
     public ItemStack(Item item, int quantity) {
+<<<<<<< HEAD
         if (item == null) {
             throw new IllegalArgumentException("Item cannot be null");
         }
@@ -23,6 +29,10 @@ public class ItemStack implements Serializable {
         if (!item.isStackable()) {
             this.quantity = 1;
         }
+=======
+        this.item = item;
+        this.quantity = quantity;
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     }
 
     public Item getItem() {
@@ -33,6 +43,7 @@ public class ItemStack implements Serializable {
         return quantity;
     }
 
+<<<<<<< HEAD
     /**
      * Sets the quantity of items in the stack.
      * Ensures the quantity is valid (>= 1) and respects the item's max stack size.
@@ -93,5 +104,16 @@ public class ItemStack implements Serializable {
     public boolean isFull() {
         return item.isStackable() && this.quantity >= item.getMaxStackSize();
     }
+=======
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void addQuantity(int amount) {
+        this.quantity += amount;
+    }
+
+    // TODO: Add checks for max stack size if needed
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
 }
 

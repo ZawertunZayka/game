@@ -1,5 +1,6 @@
 package com.example.farmlifegame;
 
+<<<<<<< HEAD
 import android.util.Log;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,11 +14,18 @@ public class Inventory implements Serializable {
     private static final long serialVersionUID = 1L; // Needed for Serializable
     private static final String TAG = "Inventory";
 
+=======
+import java.util.ArrayList;
+import java.util.List;
+
+public class Inventory {
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     private int capacity; // Max number of unique item stacks
     private List<ItemStack> items;
 
     public Inventory(int capacity) {
         this.capacity = capacity;
+<<<<<<< HEAD
         // Initialize with nulls or empty slots to represent fixed capacity
         this.items = new ArrayList<>(capacity);
         for (int i = 0; i < capacity; i++) {
@@ -176,18 +184,75 @@ public class Inventory implements Serializable {
      * Null entries represent empty slots.
      * @return The list of ItemStacks.
      */
+=======
+        this.items = new ArrayList<>(capacity);
+    }
+
+    public boolean addItem(Item item, int quantity) {
+        if (quantity <= 0) {
+            return false;
+        }
+
+        // Check if item already exists and can be stacked
+        for (ItemStack stack : items) {
+            // TODO: Add check for stackable items and max stack size
+            if (stack.getItem().getName().equals(item.getName())) { // Simple name check for now
+                stack.addQuantity(quantity);
+                return true;
+            }
+        }
+
+        // If item not found or cannot stack more, add a new stack if space available
+        if (items.size() < capacity) {
+            items.add(new ItemStack(item, quantity));
+            return true;
+        } else {
+            // Inventory full
+            return false;
+        }
+    }
+
+    public boolean removeItem(Item item, int quantity) {
+        if (quantity <= 0) {
+            return false;
+        }
+
+        for (int i = items.size() - 1; i >= 0; i--) {
+            ItemStack stack = items.get(i);
+            if (stack.getItem().getName().equals(item.getName())) { // Simple name check
+                if (stack.getQuantity() > quantity) {
+                    stack.addQuantity(-quantity);
+                    return true;
+                } else if (stack.getQuantity() == quantity) {
+                    items.remove(i);
+                    return true;
+                } else {
+                    // Not enough items in this stack, maybe check other stacks? (if splitting allowed)
+                    // For now, assume we only remove from one stack fully or partially
+                    return false; // Or handle splitting logic if needed
+                }
+            }
+        }
+        return false; // Item not found
+    }
+
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     public List<ItemStack> getItems() {
         return items;
     }
 
+<<<<<<< HEAD
     /**
      * Gets the total number of slots in the inventory.
      * @return The capacity.
      */
+=======
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     public int getCapacity() {
         return capacity;
     }
 
+<<<<<<< HEAD
     /**
      * Clears the inventory, setting all slots to null.
      */
@@ -223,5 +288,8 @@ public class Inventory implements Serializable {
              clear();
         }
     }
+=======
+    // TODO: Add methods to check quantity of an item, find specific items, etc.
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
 }
 

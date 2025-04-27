@@ -1,5 +1,7 @@
 package com.example.farmlifegame;
 
+import static android.os.Build.VERSION_CODES.R;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +10,7 @@ import android.graphics.Rect;
 import android.util.Log;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * Represents a single tile of farmable land.
@@ -97,7 +100,7 @@ public class FarmPlot {
                     currentGrowthStage = newStage;
                     Log.d(TAG, "Crop " + plantedCrop.getName() + " at (" + tileX + "," + tileY + ") grew to stage " + currentGrowthStage);
                 }
-            }\n            // Reset watered state daily? (Needs game time implementation)
+            }            // Reset watered state daily? (Needs game time implementation)
             // if (isNewDay) { isWatered = false; }
         }
     }

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+<<<<<<< HEAD
 import android.util.Log;
 
 // Note: Tilemap might need to save its state (map array) if it can be modified (e.g., tilled soil)
@@ -21,6 +22,17 @@ public class Tilemap {
     // Example map data (0=grass, 1=dirt, 2=water, 3=tilled_dirt)
     // This needs to correspond to the actual tileset layout
     // Consider loading this from a file or GameData
+=======
+
+public class Tilemap {
+    private Bitmap tilesetBitmap;
+    private int tileSize = 16; // Assuming 16x16 tiles
+    private int mapWidth = 20; // Example map width
+    private int mapHeight = 15; // Example map height
+
+    // Example map data (0=grass, 1=dirt, 2=water)
+    // This needs to correspond to the actual tileset layout
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     private int[][] map = {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -39,6 +51,7 @@ public class Tilemap {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
 
+<<<<<<< HEAD
     // Define which tile types are solid for collision
     private static final int[] SOLID_TILES = {2}; // Example: Water is solid
 
@@ -75,6 +88,21 @@ public class Tilemap {
                 int tileType = getTileType(x, y);
                 if (tileType < 0) continue; // Skip invalid tiles
 
+=======
+    public Tilemap(Context context) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inScaled = false; // Load the bitmap at its original size
+        tilesetBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tileset_world, options);
+        // TODO: Handle potential errors loading the bitmap
+    }
+
+    public void draw(Canvas canvas) {
+        if (tilesetBitmap == null) return;
+
+        for (int y = 0; y < mapHeight; y++) {
+            for (int x = 0; x < mapWidth; x++) {
+                int tileType = map[y][x];
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
                 Rect sourceRect = getTileRect(tileType); // Get the rect for the tile in the tileset
                 Rect destRect = new Rect(x * tileSize, y * tileSize, (x + 1) * tileSize, (y + 1) * tileSize);
                 canvas.drawBitmap(tilesetBitmap, sourceRect, destRect, null);
@@ -82,6 +110,7 @@ public class Tilemap {
         }
     }
 
+<<<<<<< HEAD
     /**
      * Gets the Rect for a specific tile type ID from the tileset bitmap.
      * Assumes tiles are arranged sequentially left-to-right, top-to-bottom.
@@ -95,12 +124,38 @@ public class Tilemap {
         }
         int tileY = tileType / tilesetColumns;
         int tileX = tileType % tilesetColumns;
+=======
+    // Helper method to get the Rect for a specific tile type from the tileset
+    // This needs to be adjusted based on the actual layout of tileset_world.png
+    private Rect getTileRect(int tileType) {
+        int tilesPerRow = tilesetBitmap.getWidth() / tileSize;
+        int tileX = 0; // Default to first tile (grass?)
+        int tileY = 0;
+
+        // VERY basic mapping - needs proper implementation based on tileset_world.png layout
+        switch (tileType) {
+            case 0: // Grass - Assuming it's at (0, 0) in the tileset
+                tileX = 0;
+                tileY = 0;
+                break;
+            case 1: // Dirt - Assuming it's at (1, 0)
+                tileX = 1;
+                tileY = 0;
+                break;
+            case 2: // Water - Assuming it's at (0, 1)
+                tileX = 0;
+                tileY = 1;
+                break;
+            // Add more cases for other tile types
+        }
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
 
         int left = tileX * tileSize;
         int top = tileY * tileSize;
         return new Rect(left, top, left + tileSize, top + tileSize);
     }
 
+<<<<<<< HEAD
     /**
      * Checks if the tile at the given tile coordinates is solid.
      * @param tileX The x-coordinate in tiles.
@@ -179,5 +234,8 @@ public class Tilemap {
             Log.e(TAG, "Failed to load map data due to dimension mismatch or null data.");
         }
     }
+=======
+    // TODO: Add methods for collision detection, getting tile type at position, etc.
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
 }
 

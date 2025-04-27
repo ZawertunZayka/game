@@ -1,11 +1,15 @@
 package com.example.farmlifegame;
 
 import android.content.Context;
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+<<<<<<< HEAD
 import android.util.Log; // Import Log for debugging
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -23,11 +27,24 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private static final String TAG = "GameView"; // Tag for logging
     private static final String DEFAULT_SAVE_SLOT = "slot1"; // Example save slot
 
+=======
+import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import java.util.ArrayList;
+import java.util.HashMap; // Import HashMap
+import java.util.List;
+import java.util.Map; // Import Map
+
+public class GameView extends SurfaceView implements SurfaceHolder.Callback {
+
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     private GameThread gameThread;
     private SurfaceHolder surfaceHolder;
     private Tilemap tilemap;
     private Player player;
     private Joystick joystick;
+<<<<<<< HEAD
     private List<ResourceNode> resourceNodes; // List for resource nodes
     private List<FarmPlot> farmPlots; // List for farm plots
     private ItemRegistry itemRegistry; // To get item instances
@@ -40,10 +57,20 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private float playerSpeed = 2.0f; // Adjusted speed
 
     // Simple interaction button
+=======
+    private List<ResourceNode> resourceNodes; // Add list for resource nodes
+    private ItemRegistry itemRegistry; // To get item instances
+
+    private int joystickPointerId = -1;
+    private float playerSpeed = 4.0f;
+
+    // Simple interaction button (example)
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     private Rect actionButtonRect;
     private Paint actionButtonPaint;
     private boolean actionButtonPressed = false;
 
+<<<<<<< HEAD
     // Game State
     private enum GameState { LOADING, RUNNING, PAUSED, INVENTORY, SHOP_TRANSITION, FISHING_MINIGAME /* Add other states */ }
     private GameState currentState = GameState.LOADING;
@@ -63,10 +90,15 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public GameView(Context context) {
         super(context);
         this.context = context; // Store context
+=======
+    public GameView(Context context) {
+        super(context);
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
         surfaceHolder = getHolder();
         surfaceHolder.addCallback(this);
 
         itemRegistry = new ItemRegistry(context); // Initialize item registry
+<<<<<<< HEAD
         cropRegistry = new CropRegistry(context, itemRegistry); // Initialize crop registry
         saveGameManager = new SaveGameManager(context); // Initialize SaveGameManager
 
@@ -84,11 +116,15 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     // Called from GameActivity when starting a new game
     public void newGame() {
         Log.d(TAG, "Initializing new game...");
+=======
+
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
         // Initialize Tilemap
         tilemap = new Tilemap(context);
 
         // Initialize Player
         player = new Player(context, 100, 100);
+<<<<<<< HEAD
         Item pickaxe = itemRegistry.getItemByName("Basic Pickaxe");
         Item hoe = itemRegistry.getItemByName("Basic Hoe");
         Item can = itemRegistry.getItemByName("Watering Can");
@@ -101,10 +137,16 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         if (seeds != null) player.getInventory().addItem(seeds, 5); // Give some starting seeds
         player.setEquippedTool(player.getInventory().getItemStack(0)); // Equip pickaxe initially
         player.setCurrency(500); // Starting currency
+=======
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
 
         // Initialize Joystick
         int joystickOuterRadius = 80;
         int joystickInnerRadius = 40;
+<<<<<<< HEAD
+=======
+        // Initial position, will be updated in surfaceChanged
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
         joystick = new Joystick(joystickOuterRadius + 60, 500, joystickOuterRadius, joystickInnerRadius);
 
         // Initialize Resource Nodes (example)
@@ -113,6 +155,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         resourceNodes.add(new ResourceNode(context, 250, 150, ResourceType.IRON));
         resourceNodes.add(new ResourceNode(context, 300, 300, ResourceType.GOLD));
 
+<<<<<<< HEAD
         // Initialize Farm Plots (example area)
         farmPlots = new ArrayList<>();
         int farmStartX = 5; // Tile X
@@ -332,11 +375,35 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                  gameThread.setRunning(true);
                  gameThread.start();
              }
+=======
+        // Initialize Action Button (example position bottom-right)
+        actionButtonPaint = new Paint();
+        actionButtonPaint.setColor(Color.RED);
+        actionButtonPaint.setAlpha(128);
+        // Position will be set in surfaceChanged
+        actionButtonRect = new Rect(0, 0, 0, 0);
+
+        gameThread = new GameThread(surfaceHolder, this);
+        setFocusable(true);
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+        if (gameThread == null || !gameThread.isRunning()) {
+             if (gameThread != null) {
+                 gameThread.setRunning(false);
+                 try { gameThread.join(); } catch (InterruptedException e) { e.printStackTrace(); }
+             }
+             gameThread = new GameThread(surfaceHolder, this); // Ensure thread is fresh
+             gameThread.setRunning(true);
+             gameThread.start();
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
         }
     }
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+<<<<<<< HEAD
         Log.d(TAG, "Surface changed: w=" + width + ", h=" + height);
         if (joystick != null) {
             joystick.setCenterPosition(joystick.outerCircleRadius + 60, height - joystick.outerCircleRadius - 60);
@@ -348,16 +415,39 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         if (fishingMinigame != null) {
             fishingMinigame.setScreenSize(width, height);
         }
+=======
+        // Update joystick position
+        joystick.setCenterPosition(joystick.outerCircleRadius + 60, height - joystick.outerCircleRadius - 60);
+        // Update action button position
+        int buttonSize = 150;
+        actionButtonRect.set(width - buttonSize - 60, height - buttonSize - 60, width - 60, height - 60);
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
+<<<<<<< HEAD
         Log.d(TAG, "Surface destroyed.");
         pause();
+=======
+        boolean retry = true;
+        if (gameThread != null) {
+            gameThread.setRunning(false);
+            while (retry) {
+                try {
+                    gameThread.join();
+                    retry = false;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
         gameThread = null;
     }
 
     public void update() {
+<<<<<<< HEAD
         long currentTime = System.currentTimeMillis();
 
         switch (currentState) {
@@ -389,6 +479,15 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
             if (Math.abs(moveX) > 0.1 || Math.abs(moveY) > 0.1) {
                 playerIsMoving = true;
+=======
+        joystick.update();
+
+        if (player != null) {
+            double moveX = joystick.getActuatorX() * playerSpeed;
+            double moveY = joystick.getActuatorY() * playerSpeed;
+
+            if (Math.abs(moveX) > 0 || Math.abs(moveY) > 0) { // Only change direction if moving
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
                  if (Math.abs(moveX) > Math.abs(moveY)) {
                      if (moveX > 0) player.setDirection(3); // Right
                      else player.setDirection(2); // Left
@@ -396,6 +495,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                      if (moveY > 0) player.setDirection(0); // Down
                      else player.setDirection(1); // Up
                  }
+<<<<<<< HEAD
 
                 int currentX = player.getX();
                 int currentY = player.getY();
@@ -739,11 +839,62 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                 }
             }
         }
+=======
+            }
+
+            // TODO: Add collision detection
+            player.setPosition((int)(player.getX() + moveX), (int)(player.getY() + moveY));
+            player.update();
+        }
+
+        // Handle interaction button press
+        if (actionButtonPressed) {
+            handleInteraction();
+            actionButtonPressed = false; // Reset after handling
+        }
+
+        // TODO: Update resource nodes (e.g., respawn timers)
+    }
+
+    private void handleInteraction() {
+        if (player == null) return;
+
+        // Simple interaction: check for nearby resource nodes
+        Rect playerInteractionBounds = new Rect(player.getX(), player.getY(), player.getX() + player.width, player.getY() + player.height);
+        // Extend bounds slightly based on direction for interaction range
+        int interactionRange = 10;
+        switch (player.direction) {
+            case 0: playerInteractionBounds.bottom += interactionRange; break; // Down
+            case 1: playerInteractionBounds.top -= interactionRange; break; // Up
+            case 2: playerInteractionBounds.left -= interactionRange; break; // Left
+            case 3: playerInteractionBounds.right += interactionRange; break; // Right
+        }
+
+
+        for (ResourceNode node : resourceNodes) {
+            if (!node.isDepleted() && Rect.intersects(playerInteractionBounds, node.getBounds())) {
+                node.hit();
+                System.out.println("Hit node: " + node.getType()); // Debug log
+                if (node.isDepleted()) {
+                    System.out.println("Node depleted: " + node.getType()); // Debug log
+                    // Add item to inventory
+                    Item droppedItem = itemRegistry.getItemForResource(node.getType());
+                    if (droppedItem != null) {
+                        boolean added = player.getInventory().addItem(droppedItem, 1);
+                        System.out.println("Item added to inventory: " + droppedItem.getName() + " Success: " + added); // Debug log
+                    }
+                }
+                break; // Interact with only one node per button press
+            }
+        }
+        // TODO: Add interaction logic for other things (NPCs, buildings, farming plots)
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     }
 
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
+<<<<<<< HEAD
         if (canvas == null) return;
 
         canvas.drawColor(Color.rgb(135, 206, 235)); // Light Sky Blue background
@@ -859,6 +1010,31 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     canvas.drawText("Fishing...", centerX, centerY, paint);
                 }
             }
+=======
+        if (canvas != null) {
+            // Draw Tilemap
+            if (tilemap != null) {
+                tilemap.draw(canvas);
+            }
+
+            // Draw Resource Nodes
+            for (ResourceNode node : resourceNodes) {
+                node.draw(canvas);
+            }
+
+            // Draw Player
+            if (player != null) {
+                player.draw(canvas);
+            }
+
+            // Draw Joystick
+            joystick.draw(canvas);
+
+            // Draw Action Button
+            canvas.drawRect(actionButtonRect, actionButtonPaint);
+
+            // TODO: Draw UI (inventory display, health, etc.)
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
         }
     }
 
@@ -870,6 +1046,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         float x = event.getX(pointerIndex);
         float y = event.getY(pointerIndex);
 
+<<<<<<< HEAD
         switch (currentState) {
             case RUNNING:
                 return handleRunningTouchEvent(event, action, pointerId, x, y);
@@ -893,22 +1070,40 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_POINTER_DOWN:
                 if (joystick != null && joystick.isPressed(x, y)) {
+=======
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_POINTER_DOWN:
+                if (joystick.isPressed(x, y)) {
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
                     if (joystickPointerId == -1) {
                         joystickPointerId = pointerId;
                         joystick.setIsPressed(true);
                         joystick.setActuator(x, y);
                     }
+<<<<<<< HEAD
                 } else if (actionButtonRect != null && actionButtonRect.contains((int)x, (int)y)) {
                     actionButtonPressed = true;
                 } else {
                     // Handle other UI touches
+=======
+                } else if (actionButtonRect.contains((int)x, (int)y)) {
+                    // Action button pressed
+                    actionButtonPressed = true;
+                } else {
+                    // Handle other touch events
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
                 }
                 return true;
 
             case MotionEvent.ACTION_MOVE:
                 for (int i = 0; i < event.getPointerCount(); i++) {
                     int currentPointerId = event.getPointerId(i);
+<<<<<<< HEAD
                     if (currentPointerId == joystickPointerId && joystick != null) {
+=======
+                    if (currentPointerId == joystickPointerId) {
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
                         float currentX = event.getX(i);
                         float currentY = event.getY(i);
                         joystick.setActuator(currentX, currentY);
@@ -919,11 +1114,16 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_POINTER_UP:
+<<<<<<< HEAD
                 if (pointerId == joystickPointerId && joystick != null) {
+=======
+                if (pointerId == joystickPointerId) {
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
                     joystick.setIsPressed(false);
                     joystick.resetActuator();
                     joystickPointerId = -1;
                 }
+<<<<<<< HEAD
                 return true;
 
             case MotionEvent.ACTION_CANCEL:
@@ -931,10 +1131,19 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                      joystick.setIsPressed(false);
                      joystick.resetActuator();
                  }
+=======
+                // Reset action button state if needed (handled in update)
+                return true;
+
+            case MotionEvent.ACTION_CANCEL:
+                 joystick.setIsPressed(false);
+                 joystick.resetActuator();
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
                  joystickPointerId = -1;
                  actionButtonPressed = false;
                  return true;
         }
+<<<<<<< HEAD
         return false;
     }
 
@@ -953,6 +1162,12 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         // Set paused state
         currentState = GameState.PAUSED;
         // Stop the game thread
+=======
+        return super.onTouchEvent(event);
+    }
+
+    public void pause() {
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
         if (gameThread != null && gameThread.isRunning()) {
              gameThread.setRunning(false);
              boolean retry = true;
@@ -961,13 +1176,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                      gameThread.join();
                      retry = false;
                  } catch (InterruptedException e) {
+<<<<<<< HEAD
                      Log.e(TAG, "Error joining thread on pause", e);
+=======
+                     e.printStackTrace();
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
                  }
              }
         }
     }
 
     public void resume() {
+<<<<<<< HEAD
         Log.d(TAG, "Resuming game.");
         // Only resume if paused
         if (currentState == GameState.PAUSED) {
@@ -988,10 +1208,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                      gameThread.setRunning(true);
                      gameThread.start();
                 }
+=======
+        if (gameThread == null || !gameThread.isRunning()) {
+            if (surfaceHolder.getSurface().isValid()) {
+                 gameThread = new GameThread(surfaceHolder, this); // Recreate if needed
+                 gameThread.setRunning(true);
+                 gameThread.start();
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
             }
         }
     }
 
+<<<<<<< HEAD
     // --- Item Registry Inner Class ---
     private static class ItemRegistry {
         private Map<ResourceType, Item> resourceItems = new HashMap<>();
@@ -1053,11 +1281,29 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
                     fishList.add(fish);
                 }
             }
+=======
+    // Need a way to get Item instances based on ResourceType
+    private static class ItemRegistry {
+        private Map<ResourceType, Item> resourceItems = new HashMap<>();
+        // Add maps for other item types if needed
+
+        public ItemRegistry(Context context) {
+            // Define items corresponding to resources
+            // Use placeholder resource IDs for icons for now
+            resourceItems.put(ResourceType.STONE, new Item("Stone", ItemType.RESOURCE, R.drawable.spritesheet_icons, "A piece of rock."));
+            resourceItems.put(ResourceType.COAL, new Item("Coal", ItemType.RESOURCE, R.drawable.spritesheet_icons, "A lump of coal.")); // Need Coal icon
+            resourceItems.put(ResourceType.IRON, new Item("Iron Ore", ItemType.RESOURCE, R.drawable.spritesheet_icons, "Raw iron ore."));
+            resourceItems.put(ResourceType.GOLD, new Item("Gold Ore", ItemType.RESOURCE, R.drawable.spritesheet_icons, "Raw gold ore."));
+            resourceItems.put(ResourceType.EMERALD, new Item("Emerald", ItemType.RESOURCE, R.drawable.spritesheet_icons, "A green gemstone."));
+            resourceItems.put(ResourceType.DIAMOND, new Item("Diamond", ItemType.RESOURCE, R.drawable.spritesheet_icons, "A hard, clear gemstone."));
+            // TODO: Assign correct icon rects or individual drawables later
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
         }
 
         public Item getItemForResource(ResourceType type) {
             return resourceItems.get(type);
         }
+<<<<<<< HEAD
 
         public Item getItemByName(String name) {
             return allItemsByName.get(name);
@@ -1195,6 +1441,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         public Item getResult() {
             return result;
         }
+=======
+>>>>>>> b4451981c2659383d1917b09f23e243d44d5887f
     }
 }
 
