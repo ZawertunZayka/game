@@ -1,0 +1,41 @@
+2025-04-27 09:03:01.607 [info] 
+
+
+
+
+2025-04-27 09:03:01.633 [info] Extension host agent started.
+2025-04-27 09:03:01.731 [info] Started initializing default profile extensions in extensions installation folder. file:///home/ubuntu/.local/share/code-server/extensions
+2025-04-27 09:03:01.754 [info] Completed initializing default profile extensions in extensions installation folder. file:///home/ubuntu/.local/share/code-server/extensions
+2025-04-27 09:03:13.612 [info] [10.197.82.1][a6ef1ea2][ManagementConnection] New connection established.
+2025-04-27 09:03:16.465 [info] [10.197.82.1][10eaec13][ExtensionHostConnection] New connection established.
+2025-04-27 09:03:17.409 [info] [10.197.82.1][10eaec13][ExtensionHostConnection] <8643> Launched Extension Host Process.
+2025-04-27 09:08:22.311 [info] [10.197.82.1][e65f7d2a][ManagementConnection] New connection established.
+2025-04-27 09:08:24.577 [info] [10.197.82.1][b301fa1f][ExtensionHostConnection] New connection established.
+2025-04-27 09:08:24.587 [info] [10.197.82.1][b301fa1f][ExtensionHostConnection] <15315> Launched Extension Host Process.
+2025-04-27 09:08:35.509 [warning] RequestStore#acceptReply was called without receiving a matching request 13
+2025-04-27 09:08:35.510 [warning] RequestStore#acceptReply was called without receiving a matching request 14
+2025-04-27 09:08:35.510 [warning] RequestStore#acceptReply was called without receiving a matching request 15
+2025-04-27 09:08:35.510 [warning] RequestStore#acceptReply was called without receiving a matching request 16
+2025-04-27 09:08:35.510 [warning] RequestStore#acceptReply was called without receiving a matching request 17
+2025-04-27 09:08:35.510 [warning] RequestStore#acceptReply was called without receiving a matching request 18
+2025-04-27 09:08:35.510 [warning] RequestStore#acceptReply was called without receiving a matching request 19
+2025-04-27 09:08:35.511 [warning] RequestStore#acceptReply was called without receiving a matching request 20
+2025-04-27 09:08:35.511 [warning] RequestStore#acceptReply was called without receiving a matching request 21
+2025-04-27 09:08:35.511 [warning] RequestStore#acceptReply was called without receiving a matching request 22
+2025-04-27 09:08:35.511 [warning] RequestStore#acceptReply was called without receiving a matching request 23
+2025-04-27 09:08:35.511 [warning] RequestStore#acceptReply was called without receiving a matching request 24
+2025-04-27 09:11:35.497 [warning] RequestStore#acceptReply was called without receiving a matching request 25
+2025-04-27 09:11:35.497 [warning] RequestStore#acceptReply was called without receiving a matching request 26
+2025-04-27 09:11:35.497 [warning] RequestStore#acceptReply was called without receiving a matching request 27
+2025-04-27 09:11:35.497 [warning] RequestStore#acceptReply was called without receiving a matching request 28
+2025-04-27 09:11:35.497 [warning] RequestStore#acceptReply was called without receiving a matching request 29
+2025-04-27 09:11:35.498 [warning] RequestStore#acceptReply was called without receiving a matching request 30
+2025-04-27 09:11:35.498 [warning] RequestStore#acceptReply was called without receiving a matching request 31
+2025-04-27 09:11:35.498 [warning] RequestStore#acceptReply was called without receiving a matching request 32
+2025-04-27 09:11:35.498 [warning] RequestStore#acceptReply was called without receiving a matching request 33
+2025-04-27 09:11:35.498 [warning] RequestStore#acceptReply was called without receiving a matching request 34
+2025-04-27 09:11:35.498 [warning] RequestStore#acceptReply was called without receiving a matching request 35
+2025-04-27 09:11:35.498 [warning] RequestStore#acceptReply was called without receiving a matching request 36
+2025-04-27 09:17:48.382 [info] [10.58.110.1][36c4f91d][ManagementConnection] New connection established.
+2025-04-27 09:17:51.232 [info] [10.58.110.1][c0c17992][ExtensionHostConnection] New connection established.
+2025-04-27 09:17:51.332 [info] [10.58.110.1][c0c17992][ExtensionHostConnection] <19088> Launched Extension Host Process.

@@ -1,0 +1,50 @@
+# Android Game Development Todo List
+
+- [ ] 001: Clarify requirements with user (Done)
+- [X] 002: Setup Android development environment
+  - [X] Install Java Development Kit (JDK)
+  - [X] Download and set up Android SDK command-line tools
+  - [X] Install required Android SDK components (platform-tools, build-tools, platform)
+  - [X] Verify environment setup (Implicitly done by successful installation)
+- [ ] 003: Create project structure and assets
+  - [X] Create basic Android project structure
+  - [ ] Find/create initial game assets (textures, sprites)
+    - [ ] Backgrounds (loading, main menu)
+    - [ ] Buttons
+    - [X] Character sprite - Found basic spritesheet
+    - [X] Tileset for game world (grass, water, dirt, mine entrance, etc.) - Found basic tileset
+    - [X] Resource sprites (ores, fish, crops) - Crops found
+    - [X] UI elements (inventory slots, etc.) - Found resource icons
+- [X] 004: Implement main menu and navigation
+  - [ ] Create loading screen activity
+  - [ ] Create main menu activity with buttons (Play, Settings, About, Exit)
+  - [ ] Implement navigation between screens
+  - [ ] Implement "Play" button logic (New Game / Load Game prompt)
+  - [ ] Implement "Settings" screen (placeholder)
+  - [ ] Implement "About" screen (display "by Zawertun")
+  - [ ] Implement "Exit" button logic
+- [ ] 005: Develop game mechanics and features
+  - [ ] Create game world screen/activity
+  - [ ] Implement player character movement (using on-screen joystick)
+  - [ ] Implement tile-based map rendering
+  - [ ] Implement inventory system
+  - [ ] Implement resource gathering
+    - [ ] Mining (ore spawning, tool interaction)
+    - [ ] Fishing (at the lake)
+    - [ ] Farming (planting, growing, harvesting)
+  - [ ] Implement selling mechanics (at the selling place)
+  - [ ] Implement buying mechanics (at the buying place - improvements)
+  - [ ] Implement skill/leveling system (placeholder/basic)
+  - [ ] Implement farm size expansion (placeholder/basic)
+- [ ] 006: Implement save/load system
+  - [ ] Design save data structure
+  - [ ] Implement saving game state
+  - [ ] Implement loading game state
+  - [ ] Integrate with "New Game" / "Load Game" options
+- [ ] 007: Test and debug game
+  - [ ] Perform unit/integration testing
+  - [ ] Debug gameplay issues
+  - [ ] Test on different screen sizes/resolutions (emulated)
+- [ ] 008: Package and deliver final game
+  - [ ] Build release APK
+  - [ ] Provide APK file to user
